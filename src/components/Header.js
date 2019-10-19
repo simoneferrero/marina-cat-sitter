@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link } from '@reach/router'
 import styled from 'styled-components/macro'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 import Icon from './Icon'
 
@@ -37,43 +37,39 @@ const StyledHeader = styled.header`
 		}
 	}
 `
-const StyledLink = styled(Link)`
-	text-decoration: ${props => props['data-active'] && 'underline !important'};
-`
 
 const Header = ({ theme }) => {
-	const { hash } = window.location
 	const menuItems = [
 		{
 			children: 'Chi Sono',
-			to: '#about',
+			href: '#about',
 		},
 		{
 			children: 'Servizi',
-			to: '#services',
+			href: '#services',
 		},
 		{
 			children: <Icon />,
-			to: '/',
+			href: '#home',
 		},
 		{
 			children: 'Pacchetti',
-			to: '#packages',
+			href: '#packages',
 		},
 		{
 			children: 'Contatti',
-			to: '#contacts',
+			href: '#contacts',
 		},
 	]
 
 	return (
 		<StyledHeader theme={theme}>
 			<div>
-				{menuItems.map(({ children, to }) => (
-					<h2 key={to}>
-						<StyledLink data-active={hash === to} to={to}>
+				{menuItems.map(({ children, href }) => (
+					<h2 key={href}>
+						<AnchorLink href={href} offset={theme ? theme.headerHeight : 0}>
 							{children}
-						</StyledLink>
+						</AnchorLink>
 					</h2>
 				))}
 			</div>

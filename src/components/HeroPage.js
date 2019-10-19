@@ -30,8 +30,6 @@ const StyledHeroPage = styled.section`
 	}
 
 	h2 {
-		${'' /* font-size: 3rem;
-		line-height: 3rem; */}
 		margin-top: 1rem;
 	}
 `
@@ -56,7 +54,7 @@ const HeroPage = ({ theme }) => {
 	`)
 
 	return (
-		<StyledHeroPage backgroundSrc={backgroundSrc} theme={theme}>
+		<StyledHeroPage backgroundSrc={backgroundSrc} id="home" theme={theme}>
 			<h1>Io e il tuo gatto, aMICI per la pelle</h1>
 			<h2>
 				Pet sitter con anni di esperienza, pronta a prendersi cura dei tuoi cari
