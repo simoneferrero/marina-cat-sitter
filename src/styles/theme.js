@@ -7,6 +7,7 @@ const theme = {
 		lightBlue: '#86C9B4',
 		yellow: '#FDDF00',
 		lightGreen: '#74BA61',
+		white: '#FFF',
 	},
 	headerHeight: 70,
 	maxWidth: 900,

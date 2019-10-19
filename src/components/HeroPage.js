@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -8,6 +7,7 @@ const StyledHeroPage = styled.section`
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("${({
 		backgroundSrc,
 	}) => backgroundSrc}");
+	background-attachment: fixed;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -34,7 +34,7 @@ const StyledHeroPage = styled.section`
 	}
 `
 
-const HeroPage = ({ theme }) => {
+const HeroPage = () => {
 	const {
 		background: {
 			childImageSharp: {
@@ -54,7 +54,7 @@ const HeroPage = ({ theme }) => {
 	`)
 
 	return (
-		<StyledHeroPage backgroundSrc={backgroundSrc} id="home" theme={theme}>
+		<StyledHeroPage backgroundSrc={backgroundSrc} id="home">
 			<h1>Io e il tuo gatto, aMICI per la pelle</h1>
 			<h2>
 				Pet sitter con anni di esperienza, pronta a prendersi cura dei tuoi cari
@@ -62,10 +62,6 @@ const HeroPage = ({ theme }) => {
 			</h2>
 		</StyledHeroPage>
 	)
-}
-
-HeroPage.propTypes = {
-	theme: PropTypes.object,
 }
 
 export default HeroPage

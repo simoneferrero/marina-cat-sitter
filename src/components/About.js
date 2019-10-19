@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
@@ -27,7 +26,7 @@ const StyledImg = styled(Img)`
 	margin: 0 1rem 1rem 0;
 `
 
-const About = ({ theme }) => {
+const About = () => {
 	const {
 		avatar: {
 			childImageSharp: { fixed },
@@ -45,14 +44,15 @@ const About = ({ theme }) => {
 	`)
 
 	return (
-		<StyledAbout id="about" theme={theme}>
+		<StyledAbout id="about">
 			<div>
 				<StyledImg fixed={fixed} />
+				<h3>Ciao, mi chiamo Marina e adoro gli animali. </h3>
 				<p>
-					Ciao, mi chiamo Marina e adoro gli animali. Ho 3 gatti meravigliosi a
-					casa a farmi compagnia, e nella mia vita mi sono presa cura (e lo
-					faccio tuttora!) di cani, gatti, pesci, tartarughe, cavalli, un marito
-					e due figli (meno pelosi, ma molto più impegnativi!)
+					Ho 3 gatti meravigliosi a casa a farmi compagnia, e nella mia vita mi
+					sono presa cura (e lo faccio tuttora!) di cani, gatti, pesci,
+					tartarughe, cavalli, un marito e due figli (meno pelosi, ma molto più
+					impegnativi!)
 				</p>
 				<p>
 					Faccio parte del collettivo &quot;Le Sfigatte&quot;, e ogni giorno
@@ -71,10 +71,6 @@ const About = ({ theme }) => {
 			</div>
 		</StyledAbout>
 	)
-}
-
-About.propTypes = {
-	theme: PropTypes.object,
 }
 
 export default About

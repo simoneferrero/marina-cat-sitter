@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import styled from 'styled-components/macro'
+import React, { useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components/macro'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 import Icon from './Icon'
 
 const StyledHeader = styled.header`
+	backdrop-filter: blur(20px);
 	background: transparent;
 	margin-bottom: 1.45rem;
 	position: fixed;
 	top: 0;
 	width: 100%;
-	backdrop-filter: blur(20px);
+	z-index: 900;
 
 	> div {
 		align-items: center;
@@ -38,7 +38,8 @@ const StyledHeader = styled.header`
 	}
 `
 
-const Header = ({ theme }) => {
+const Header = () => {
+	const theme = useContext(ThemeContext)
 	const menuItems = [
 		{
 			children: 'Chi Sono',
@@ -63,11 +64,11 @@ const Header = ({ theme }) => {
 	]
 
 	return (
-		<StyledHeader theme={theme}>
+		<StyledHeader>
 			<div>
 				{menuItems.map(({ children, href }) => (
 					<h2 key={href}>
-						<AnchorLink href={href} offset={theme ? theme.headerHeight : 0}>
+						<AnchorLink href={href} offset={theme.headerHeight}>
 							{children}
 						</AnchorLink>
 					</h2>
@@ -75,11 +76,6 @@ const Header = ({ theme }) => {
 			</div>
 		</StyledHeader>
 	)
-}
-
-Header.propTypes = {
-	siteTitle: PropTypes.string.isRequired,
-	theme: PropTypes.object,
 }
 
 export default Header
