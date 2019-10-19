@@ -21,8 +21,8 @@ module.exports = {
 				name: `marina-cat-sitter`,
 				short_name: `marina`,
 				start_url: `/`,
-				background_color: `#663399`, // TODO: change
-				theme_color: `#663399`, // TODO: change
+				background_color: `#005560`,
+				theme_color: `#005560`,
 				display: `minimal-ui`,
 				icon: `src/images/icon.png`,
 			},

@@ -17,8 +17,10 @@ const resetStyles = css`
 		margin: 0;
 	}
 
-	p {
+	p,
+	img {
 		margin: 0;
+		padding: 0;
 	}
 `
 
