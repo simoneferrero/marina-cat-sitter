@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
 		max-width: ${({ theme: { maxWidth } }) => maxWidth}px;
 		padding: 0;
 
-		> h1 {
+		> h2 {
 			line-height: 0;
 			margin: 0;
 			text-transform: uppercase;
@@ -70,11 +70,11 @@ const Header = ({ theme }) => {
 		<StyledHeader theme={theme}>
 			<div>
 				{menuItems.map(({ children, to }) => (
-					<h1 key={to}>
+					<h2 key={to}>
 						<StyledLink data-active={hash === to} to={to}>
 							{children}
 						</StyledLink>
-					</h1>
+					</h2>
 				))}
 			</div>
 		</StyledHeader>
@@ -83,11 +83,7 @@ const Header = ({ theme }) => {
 
 Header.propTypes = {
 	siteTitle: PropTypes.string.isRequired,
-	theme: PropTypes.shape({
-		colors: PropTypes.object.isRequired,
-		maxWidth: PropTypes.number.isRequired,
-		headerHeight: PropTypes.number.isRequired,
-	}),
+	theme: PropTypes.object,
 }
 
 export default Header

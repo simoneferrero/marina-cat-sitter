@@ -25,13 +25,13 @@ const StyledHeroPage = styled.section`
 	}
 
 	h1 {
-		font-size: 7rem;
-		line-height: 7rem;
+		font-size: 6rem;
+		line-height: 6rem;
 	}
 
 	h2 {
-		font-size: 3rem;
-		line-height: 3rem;
+		${'' /* font-size: 3rem;
+		line-height: 3rem; */}
 		margin-top: 1rem;
 	}
 `
@@ -67,11 +67,7 @@ const HeroPage = ({ theme }) => {
 }
 
 HeroPage.propTypes = {
-	theme: PropTypes.shape({
-		colors: PropTypes.object.isRequired,
-		headerHeight: PropTypes.number.isRequired,
-		maxWidth: PropTypes.number.isRequired,
-	}),
+	theme: PropTypes.object,
 }
 
 export default HeroPage

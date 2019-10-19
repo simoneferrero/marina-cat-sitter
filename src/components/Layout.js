@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components/macro'
 
+import Footer from './Footer'
 import Header from './Header'
 
 import GlobalStyles from '../styles/index'
@@ -32,12 +33,8 @@ const Layout = ({ children }) => {
 				<Header siteTitle={data.site.siteMetadata.title} />
 				<StyledContentContainer theme={theme}>
 					<main>{children}</main>
-					<footer>
-						© {new Date().getFullYear()}, Built with
-						{` `}
-						<a href="https://www.gatsbyjs.org">Gatsby</a>
-					</footer>
 				</StyledContentContainer>
+				<Footer />
 			</>
 		</ThemeProvider>
 	)
@@ -45,10 +42,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
 	children: PropTypes.node.isRequired,
-	theme: PropTypes.shape({
-		colors: PropTypes.object.isRequired,
-		maxWidth: PropTypes.number.isRequired,
-	}),
+	theme: PropTypes.object,
 }
 
 export default Layout
