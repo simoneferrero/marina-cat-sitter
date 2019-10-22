@@ -22,6 +22,16 @@ const resetStyles = css`
 		margin: 0;
 		padding: 0;
 	}
+
+	button {
+		background: none;
+		border: none;
+		color: inherit;
+		cursor: pointer;
+		font: inherit;
+		outline: inherit;
+		padding: 0;
+	}
 `
 
 export default createGlobalStyle`

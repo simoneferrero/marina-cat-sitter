@@ -5,6 +5,7 @@ import styled, { ThemeProvider } from 'styled-components/macro'
 
 import Footer from './Footer'
 import Header from './Header'
+import { FormContextProvider } from '../context/FormContext'
 
 import GlobalStyles from '../styles/index'
 import theme from '../styles/theme'
@@ -28,14 +29,14 @@ const Layout = ({ children }) => {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<>
+			<FormContextProvider>
 				<GlobalStyles />
 				<Header siteTitle={data.site.siteMetadata.title} />
 				<StyledContentContainer theme={theme}>
 					<main>{children}</main>
 				</StyledContentContainer>
 				<Footer />
-			</>
+			</FormContextProvider>
 		</ThemeProvider>
 	)
 }
