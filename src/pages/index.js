@@ -1,7 +1,7 @@
 import React from 'react'
 
 import About from '../components/About'
-import Break1 from '../components/Break1'
+import Break from '../components/Break'
 import HeroPage from '../components/HeroPage'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
@@ -12,8 +12,9 @@ const IndexPage = () => (
 		<SEO title="Home" />
 		<HeroPage />
 		<About />
-		<Break1 />
+		<Break id="break-1" />
 		<Services />
+		<Break id="break-2" />
 	</Layout>
 )
 
