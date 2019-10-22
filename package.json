@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "formik": "^1.5.8",
     "gatsby": "^2.16.1",
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-manifest": "^2.2.23",
@@ -18,10 +19,12 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
+    "react-select": "^3.0.8",
     "react-typography": "^0.16.19",
     "styled-components": "^4.4.0",
     "typography": "^0.16.19",
-    "typography-theme-bootstrap": "^0.16.19"
+    "typography-theme-bootstrap": "^0.16.19",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import About from '../components/About'
+import Contacts from '../components/Contacts'
 import Break from '../components/Break'
 import HeroPage from '../components/HeroPage'
 import Layout from '../components/Layout'
@@ -17,6 +18,8 @@ const IndexPage = () => (
 		<Services />
 		<Break id="break-2" />
 		<Packages />
+		<Break id="break-3" />
+		<Contacts />
 	</Layout>
 )
 
