@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
 			<FormContextProvider>
 				<GlobalStyles />
 				<Header siteTitle={data.site.siteMetadata.title} />
-				<StyledContentContainer theme={theme}>
+				<StyledContentContainer>
 					<main>{children}</main>
 				</StyledContentContainer>
 				<Footer />
