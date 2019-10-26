@@ -3,6 +3,7 @@ import styled, { css, ThemeContext } from 'styled-components/macro'
 
 import FormContext from '../context/FormContext'
 import smoothScroll from '../helpers/smoothScroll'
+import { packages } from '../constants/index'
 
 const activePackageStyles = css`
 	transform: scale(1.5);
@@ -79,30 +80,10 @@ const StyledPackage = styled.div`
 `
 
 const Packages = () => {
-	const [active, setActive] = useState('1hour')
+	const favouritePackage = '1 ora'
+	const [active, setActive] = useState(favouritePackage)
 	const { dispatch } = useContext(FormContext)
 	const { headerHeight } = useContext(ThemeContext)
-	const packages = [
-		{
-			id: '30min',
-			title: '30 minuti',
-			text:
-				'Una visita breve per dare da mangiare, pulire la sabbietta e assicurarti che tutto sia a posto',
-		},
-		{
-			id: '1hour',
-			title: '1 ora',
-			text:
-				'Una visita più lunga per dare da mangiare, pulire la sabbietta e fare compagnia ai tuoi animali',
-			favourite: true,
-		},
-		{
-			id: 'night',
-			title: 'Notturna',
-			text:
-				'Nel caso i tuoi animali necessitino di cure particolari o di una compagnia prolungata',
-		},
-	]
 	const handleClick = selectedPackage => {
 		dispatch({ type: 'SET_SELECTED_PACKAGE', payload: { selectedPackage } })
 		smoothScroll('contacts', { offset: headerHeight })
@@ -117,7 +98,7 @@ const Packages = () => {
 						active={active === id}
 						key={id}
 						onMouseEnter={() => setActive(id)}
-						onMouseLeave={() => setActive('1hour')}
+						onMouseLeave={() => setActive(favouritePackage)}
 					>
 						<h4>{title}</h4>
 						<p>{text}</p>
