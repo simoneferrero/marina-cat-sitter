@@ -18,6 +18,9 @@ const StyledContacts = styled.section`
 		}
 	}
 `
+// TODO: import contact number/email from graphql
+// TODO: set url from constant or environment file
+// TODO: set loader when sending form
 const Contacts = () => (
 	<StyledContacts id="contacts">
 		<div>
