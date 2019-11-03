@@ -75,7 +75,6 @@ export const getAnimalOptions = () => {
 			allFile(filter: { name: { regex: "/cat|dog/" } }) {
 				edges {
 					node {
-						relativePath
 						name
 						childImageSharp {
 							fixed(height: 70) {

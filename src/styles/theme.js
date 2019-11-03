@@ -12,7 +12,7 @@ const theme = {
 	},
 	headerHeight: 70,
 	headerHeightMax: 100,
-	maxWidth: 900,
+	maxWidth: 1200,
 }
 
 export default theme

@@ -6,6 +6,17 @@ import Chia_Light from '../fonts/Chia-Light.otf'
 import Chia_Medium from '../fonts/Chia-Medium.otf'
 import Chia_Regular from '../fonts/Chia-Regular.otf'
 import Montserrat_Black from '../fonts/Montserrat-Black.ttf'
+import Montserrat_BlackItalic from '../fonts/Montserrat-BlackItalic.ttf'
+import Montserrat_Bold from '../fonts/Montserrat-Bold.ttf'
+import Montserrat_BoldItalic from '../fonts/Montserrat-BoldItalic.ttf'
+import Montserrat_Italic from '../fonts/Montserrat-Italic.ttf'
+import Montserrat_Light from '../fonts/Montserrat-Light.ttf'
+import Montserrat_LightItalic from '../fonts/Montserrat-LightItalic.ttf'
+import Montserrat_Medium from '../fonts/Montserrat-Medium.ttf'
+import Montserrat_MediumItalic from '../fonts/Montserrat-MediumItalic.ttf'
+import Montserrat_Regular from '../fonts/Montserrat-Regular.ttf'
+import Montserrat_Thin from '../fonts/Montserrat-Thin.ttf'
+import Montserrat_ThinItalic from '../fonts/Montserrat-ThinItalic.ttf'
 import Roboto_Black from '../fonts/Roboto-Black.ttf'
 import Roboto_BlackItalic from '../fonts/Roboto-BlackItalic.ttf'
 import Roboto_Bold from '../fonts/Roboto-Bold.ttf'
@@ -23,13 +34,13 @@ const CHIA = 'Chia'
 const MONTSERRAT = 'Montserrat'
 const ROBOTO = 'Roboto'
 
-const BLACK = 'black'
+const BLACK = '900'
 const BOLD = 'bold'
 const ITALIC = 'italic'
-const LIGHT = 'light'
-const MEDIUM = 'medium'
+const LIGHT = '300'
+const MEDIUM = '500'
 const NORMAL = 'normal'
-const THIN = 'thin'
+const THIN = '200'
 
 const fontFaces = css`
 	@font-face {
@@ -72,6 +83,83 @@ const fontFaces = css`
 		src: url("${Montserrat_Black}");
 		font-weight: ${BLACK};
 		font-style: ${NORMAL};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_BlackItalic}");
+		font-weight: ${BLACK};
+		font-style: ${ITALIC};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_Bold}");
+		font-weight: ${BOLD};
+		font-style: ${NORMAL};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_BoldItalic}");
+		font-weight: ${BOLD};
+		font-style: ${ITALIC};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_Italic}");
+		font-weight: ${NORMAL};
+		font-style: ${ITALIC};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_Light}");
+		font-weight: ${LIGHT};
+		font-style: ${NORMAL};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_LightItalic}");
+		font-weight: ${LIGHT};
+		font-style: ${ITALIC};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_Medium}");
+		font-weight: ${MEDIUM};
+		font-style: ${NORMAL};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_MediumItalic}");
+		font-weight: ${MEDIUM};
+		font-style: ${ITALIC};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_Regular}");
+		font-weight: ${NORMAL};
+		font-style: ${NORMAL};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_Thin}");
+		font-weight: ${THIN};
+		font-style: ${NORMAL};
+	}
+
+	@font-face {
+		font-family: "${MONTSERRAT}";
+		src: url("${Montserrat_ThinItalic}");
+		font-weight: ${THIN};
+		font-style: ${ITALIC};
 	}
 
 	@font-face {
