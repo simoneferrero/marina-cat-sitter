@@ -5,9 +5,9 @@ import Img from 'gatsby-image'
 const Icon = () => {
 	const data = useStaticQuery(graphql`
 		query {
-			file(absolutePath: { regex: "/icon.png/" }) {
+			file(absolutePath: { regex: "//icon.png/" }) {
 				childImageSharp {
-					fixed(height: 70) {
+					fixed(height: 88) {
 						...GatsbyImageSharpFixed
 					}
 				}

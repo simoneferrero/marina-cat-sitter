@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled, { ThemeContext } from 'styled-components/macro'
 import smoothScroll from '../helpers/smoothScroll'
 
@@ -27,10 +27,14 @@ const menuItems = [
 	},
 ]
 
+const SMALL_ICON = 50
+const LARGE_ICON = 88
+
 const StyledHeader = styled.header`
-	backdrop-filter: blur(20px);
-	background: transparent;
-	height: ${({ theme: { headerHeight } }) => headerHeight}px;
+	background-color: ${({ theme: { colors } }) => colors.darkBlueTransparent};
+	color: ${({ theme: { colors } }) => colors.white};
+	height: ${({ isSmall, theme: { headerHeight, headerHeightMax } }) =>
+		isSmall ? headerHeight : headerHeightMax}px;
 	margin-bottom: 1.45rem;
 	position: fixed;
 	top: 0;
@@ -47,20 +51,31 @@ const StyledHeader = styled.header`
 		padding: 0;
 
 		button {
-			color: ${({ theme: { colors } }) => colors.lightGreen};
 			flex: 2;
 			height: 100%;
 			overflow: hidden;
 			text-decoration: none;
 
-			h2 {
-				font-size: 1.7rem;
-				line-height: 3.4rem;
+			:hover {
+				color: ${({ theme: { colors } }) => colors.pink};
+			}
+
+			h4 {
+				align-items: center;
+				display: flex;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 900;
+				justify-content: center;
 				margin: 0;
-				text-transform: uppercase;
+				text-transform: lowercase;
+
+				.gatsby-image-wrapper {
+					max-height: ${({ isSmall }) => (isSmall ? SMALL_ICON : LARGE_ICON)}px;
+					max-width: ${({ isSmall }) => (isSmall ? SMALL_ICON : LARGE_ICON)}px;
+				}
 
 				img {
-					max-height: ${({ theme: { headerHeight } }) => headerHeight}px;
+					max-width: ${({ isSmall }) => (isSmall ? SMALL_ICON : LARGE_ICON)}px;
 				}
 			}
 
@@ -73,16 +88,25 @@ const StyledHeader = styled.header`
 
 const Header = () => {
 	const { headerHeight } = useContext(ThemeContext)
+	const [isSmall, setIsSmall] = useState(false)
+
+	useEffect(() => {
+		const handleScroll = () => setIsSmall(window.scrollY > 0)
+
+		window.addEventListener('scroll', handleScroll)
+
+		return () => window.removeEventListener('scroll', handleScroll)
+	})
 
 	return (
-		<StyledHeader>
+		<StyledHeader isSmall={isSmall}>
 			<div>
 				{menuItems.map(({ children, id }) => (
 					<button
 						key={id}
 						onClick={() => smoothScroll(id, { offset: headerHeight })}
 					>
-						<h2>{children}</h2>
+						<h4>{children}</h4>
 					</button>
 				))}
 			</div>

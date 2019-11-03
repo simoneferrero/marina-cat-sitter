@@ -4,19 +4,17 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const StyledHeroPage = styled.section`
 	align-items: center;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("${({
-		backgroundSrc,
-	}) => backgroundSrc}");
-	background-attachment: fixed;
+	background-color: ${({ theme: { colors } }) => colors.darkBlue};
+	background-image: url("${({ backgroundSrc }) => backgroundSrc}");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	color: ${({ theme: { colors } }) => colors.lightBlue};
+	color: ${({ theme: { colors } }) => colors.white};
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
 	justify-content: center;
-	padding-top: ${({ theme: { headerHeight } }) => headerHeight}px;
+	padding-top: ${({ theme: { headerHeightMax } }) => headerHeightMax}px;
 	text-align: center;
 	width: 100%;
 
@@ -24,12 +22,19 @@ const StyledHeroPage = styled.section`
 		max-width: ${({ theme: { maxWidth } }) => maxWidth}px;
 	}
 
-	h1 {
-		font-size: 6rem;
-		line-height: 6rem;
+	h3 {
+		font-size: 2.6rem;
+		line-height: 5.2rem;
+
+		span {
+			color: ${({ theme: { colors } }) => colors.yellow};
+		}
 	}
 
-	h2 {
+	p {
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 1.8rem;
 		margin-top: 1rem;
 	}
 `
@@ -43,7 +48,7 @@ const HeroPage = () => {
 		},
 	} = useStaticQuery(graphql`
 		query LayoutQuery {
-			background: file(absolutePath: { regex: "/hero-page-background.jpg/" }) {
+			background: file(absolutePath: { regex: "/heroPage.png/" }) {
 				childImageSharp {
 					fixed(width: 1600) {
 						...GatsbyImageSharpFixed
@@ -55,11 +60,13 @@ const HeroPage = () => {
 
 	return (
 		<StyledHeroPage backgroundSrc={backgroundSrc} id="home">
-			<h1>Io e il tuo gatto, aMICI per la pelle</h1>
-			<h2>
+			<h3>Io e il tuo gatto, aMICI per la pelle</h3>
+			<p>
 				Pet sitter con anni di esperienza, pronta a prendersi cura dei tuoi cari
-				a quattro zampe. Disponibile a Torino e provincia.
-			</h2>
+				a quattro zampe.
+				<br />
+				Disponibile a Torino e provincia.
+			</p>
 		</StyledHeroPage>
 	)
 }
