@@ -111,7 +111,7 @@ export const StyledAnimalsContainer = styled.div`
 					width: 15px;
 
 					:checked {
-						background-color: ${({ theme: { colors } }) => colors.pink};
+						background-color: ${({ theme: { colors } }) => colors.darkGreen};
 					}
 
 					:disabled {

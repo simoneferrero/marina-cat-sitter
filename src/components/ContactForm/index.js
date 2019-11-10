@@ -108,6 +108,7 @@ const ContactForm = () => {
 										<span>Numero di animali</span>
 										<StyledField
 											disabled={isSubmitting}
+											min={0}
 											name="animali.quantità"
 											placeholder="Quanti animali hai"
 											type="number"
@@ -117,7 +118,9 @@ const ContactForm = () => {
 							)}
 						/>
 						<StyledLabel fullWidth htmlFor="commenti">
-							<span>Commenti</span>
+							<span>
+								<span>*</span> Commenti
+							</span>
 							<StyledField
 								component="textarea"
 								disabled={isSubmitting}
