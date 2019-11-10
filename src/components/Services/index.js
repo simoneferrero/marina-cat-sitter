@@ -27,7 +27,7 @@ const Services = () => {
 	const services = [
 		{
 			key: 'food',
-			text: 'Dare da mangiare', // TODO: fix text
+			text: 'Dare da mangiare',
 		},
 		{
 			key: 'litter',
@@ -35,7 +35,7 @@ const Services = () => {
 		},
 		{
 			key: 'love',
-			text: 'Coccole',
+			text: 'Coccolare a volontà',
 		},
 		{
 			key: 'plants',
@@ -43,16 +43,16 @@ const Services = () => {
 		},
 		{
 			key: 'keys',
-			text: 'Raccolta e consegna chiavi',
+			text: 'Raccogliere e consegnare le chiavi',
 		},
 		{
 			key: 'updates',
-			text: 'Aggiornamenti quotidiani',
+			text: 'Aggiornare quotidianamente',
 		},
 	].map(({ key, text }) => {
 		const {
 			node: {
-				childImageSharp: { fixed }, // TODO: use new images
+				childImageSharp: { fixed },
 			},
 		} = edges.find(({ node: { name } }) => name === `services-${key}`)
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-import Icon from '../Icon'
 import smoothScroll from '../../helpers/smoothScroll'
 import { StyledHeader } from './styled'
+import SiteIcon from '../../images/site-icon.svg'
 
 const menuItems = [
 	{
@@ -14,7 +14,7 @@ const menuItems = [
 		id: 'services',
 	},
 	{
-		children: <Icon />, // TODO: use svg
+		children: <SiteIcon />,
 		id: 'home',
 	},
 	{

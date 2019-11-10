@@ -31,6 +31,11 @@ export const StyledHeader = styled.header`
 
 			:hover {
 				color: ${({ theme: { colors } }) => colors.pink};
+
+				circle,
+				path {
+					fill: ${({ theme: { colors } }) => colors.pink};
+				}
 			}
 
 			h4 {
@@ -42,13 +47,9 @@ export const StyledHeader = styled.header`
 				margin: 0;
 				text-transform: lowercase;
 
-				.gatsby-image-wrapper {
-					max-height: ${({ isSmall }) => (isSmall ? SMALL_ICON : LARGE_ICON)}px;
-					max-width: ${({ isSmall }) => (isSmall ? SMALL_ICON : LARGE_ICON)}px;
-				}
-
-				img {
-					max-width: ${({ isSmall }) => (isSmall ? SMALL_ICON : LARGE_ICON)}px;
+				svg {
+					height: ${({ isSmall }) => (isSmall ? SMALL_ICON : LARGE_ICON)}px;
+					width: auto;
 				}
 			}
 		}
