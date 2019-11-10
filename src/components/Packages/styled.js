@@ -20,7 +20,6 @@ export const StyledPackages = styled.section`
 		> h1 {
 			font-style: italic;
 			font-weight: 400;
-			grid-column: 1/4;
 		}
 
 		> div {

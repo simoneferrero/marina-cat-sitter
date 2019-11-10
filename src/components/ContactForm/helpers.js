@@ -77,7 +77,7 @@ export const getAnimalOptions = () => {
 					node {
 						name
 						childImageSharp {
-							fixed(height: 70) {
+							fixed(height: 40) {
 								...GatsbyImageSharpFixed
 							}
 						}

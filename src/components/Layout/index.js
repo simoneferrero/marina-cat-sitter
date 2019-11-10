@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components/macro'
 
-import Footer from './Footer'
-import Header from './Header'
-import { FormContextProvider } from '../context/FormContext'
+import Footer from '../Footer'
+import Header from '../Header'
+import { FormContextProvider } from '../../context/FormContext'
 
-import GlobalStyles from '../styles/index'
-import theme from '../styles/theme'
+import GlobalStyles from '../../styles/index'
+import theme from '../../styles/theme'
 
 const StyledContentContainer = styled.div`
 	background-color: ${({ theme: { colors } }) => colors.lightBlue};

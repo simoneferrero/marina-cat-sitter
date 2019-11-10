@@ -3,12 +3,13 @@ import { Field, FieldArray, Formik } from 'formik'
 import Select from 'react-select'
 
 import {
+	StyledAnimalsContainer,
+	StyledError,
 	StyledField,
 	StyledForm,
 	StyledLabel,
-	StyledAnimalsContainer,
+	StyledLoader,
 	StyledSubmitButton,
-	StyledError,
 	StyledThankYouMessage,
 } from './styled'
 import FormContext from '../../context/FormContext'
@@ -54,8 +55,7 @@ const ContactForm = () => {
 						{personalInfoFields.map(({ id, labelText, placeholder }) => (
 							<StyledLabel key={id} htmlFor={id}>
 								<span>
-									{labelText}
-									<span>*</span>
+									<span>*</span> {labelText}
 								</span>
 								<StyledField
 									disabled={isSubmitting}
@@ -66,43 +66,7 @@ const ContactForm = () => {
 								/>
 							</StyledLabel>
 						))}
-						<FieldArray
-							name="animali.tipi"
-							render={({ push, remove }) => (
-								<StyledAnimalsContainer>
-									<span>Animali</span>
-									<div>
-										{animals.map(({ id, name }) => (
-											<StyledLabel key={id}>
-												<input
-													checked={values.animali.tipi.includes(id)}
-													disabled={isSubmitting}
-													name="animali"
-													onChange={({ target: { checked } }) => {
-														checked
-															? push(id)
-															: remove(values.animali.tipi.indexOf(id))
-													}}
-													type="checkbox"
-													value={id}
-												/>{' '}
-												{name}
-											</StyledLabel>
-										))}
-									</div>
-								</StyledAnimalsContainer>
-							)}
-						/>
-						<StyledLabel htmlFor="animali.quantità">
-							<span>Quanti</span>
-							<StyledField
-								disabled={isSubmitting}
-								name="animali.quantità"
-								placeholder="Quanti animali hai"
-								type="number"
-							/>
-						</StyledLabel>
-						<StyledLabel fullWidth htmlFor="pacchetto">
+						<StyledLabel htmlFor="pacchetto">
 							<span>Tipo di pacchetto</span>
 							<Select
 								classNamePrefix="pacchetto"
@@ -114,6 +78,44 @@ const ContactForm = () => {
 								value={values.pacchetto}
 							/>
 						</StyledLabel>
+						<FieldArray
+							name="animali.tipi"
+							render={({ push, remove }) => (
+								<StyledAnimalsContainer isSubmitting={isSubmitting}>
+									<div>
+										<span>Animali</span>
+										<div>
+											{animals.map(({ id, name }) => (
+												<label key={id}>
+													<input
+														checked={values.animali.tipi.includes(id)}
+														disabled={isSubmitting}
+														name="animali"
+														onChange={({ target: { checked } }) => {
+															checked
+																? push(id)
+																: remove(values.animali.tipi.indexOf(id))
+														}}
+														type="checkbox"
+														value={id}
+													/>{' '}
+													{name}
+												</label>
+											))}
+										</div>
+									</div>
+									<StyledLabel htmlFor="animali.quantità">
+										<span>Numero di animali</span>
+										<StyledField
+											disabled={isSubmitting}
+											name="animali.quantità"
+											placeholder="Quanti animali hai"
+											type="number"
+										/>
+									</StyledLabel>
+								</StyledAnimalsContainer>
+							)}
+						/>
 						<StyledLabel fullWidth htmlFor="commenti">
 							<span>Commenti</span>
 							<StyledField
@@ -122,11 +124,12 @@ const ContactForm = () => {
 								name="commenti"
 								placeholder="Raccontami di cosa hai bisogno"
 								required={touched.commenti && errors.commenti}
+								rows={5}
 							/>
 						</StyledLabel>
 						<Field name="_gotcha" style={{ display: 'none' }} />
 						<StyledSubmitButton type="submit" disabled={isSubmitting}>
-							Invia
+							{isSubmitting ? <StyledLoader /> : 'Invia'}
 						</StyledSubmitButton>
 						<StyledError showError={showGenericError}>
 							Si è verificato un errore. Per favore, riprova più tardi.
@@ -137,7 +140,7 @@ const ContactForm = () => {
 					<StyledThankYouMessage>
 						Grazie di avermi scritto!
 						<br />
-						Cercherò di contattarti non appena sarò disponibile. A presto!
+						Ti contatterò appena disponibile. A presto!
 					</StyledThankYouMessage>
 				)
 

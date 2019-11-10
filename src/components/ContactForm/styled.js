@@ -1,89 +1,146 @@
-import styled, { css } from 'styled-components/macro'
+import styled, { css, keyframes } from 'styled-components/macro'
 import { Field } from 'formik'
 
 export const StyledForm = styled.form`
 	display: grid;
-	grid-gap: 15px;
+	grid-column-gap: 50px;
+	grid-row-gap: 32px;
 	grid-template-columns: repeat(2, 1fr);
 	padding: 15px 0;
 `
+const disabledStyles = css`
+	cursor: not-allowed;
+	opacity: 0.4;
+`
 const inputStyles = css`
 	appearance: none;
-	background: rgba(255, 255, 255, 0.8);
-	border: 2px solid
-		${({ required, theme: { colors } }) =>
-			required ? colors.pink : 'transparent'};
-	border-radius: 5px;
+	background-color: ${({ required, theme: { colors } }) =>
+		required ? '#e50267ad' : colors.white};
+	border: none;
+	border-radius: 8px;
 	outline: none;
-	padding: 3px 8px;
+	width: 100%;
 
 	:disabled {
-		cursor: not-allowed;
+		${disabledStyles}
 	}
 `
 export const StyledLabel = styled.label`
-	display: grid;
 	grid-column: ${({ fullWidth }) => fullWidth && '1/3'};
-	grid-gap: 10px;
-	grid-template-columns: 2fr 5fr;
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 
 	> * {
 		align-self: start;
 	}
 
-	> input[type='checkbox'] {
-		align-self: center;
+	> span {
+		margin-bottom: 8px;
 
-		:disabled {
-			cursor: not-allowed;
+		> span {
+			color: ${({ theme: { colors } }) => colors.pink};
 		}
 	}
 
-	span > span {
-		color: ${({ theme: { colors } }) => colors.pink};
+	.pacchetto--is-disabled {
+		${disabledStyles}
 	}
 
-	.pacchetto__control {
-		${inputStyles}
+	#pacchetto {
+		width: 100%;
+
+		.pacchetto__control {
+			padding: 2px 8px;
+
+			${inputStyles}
+		}
+
+		.pacchetto__option,
+		.pacchetto__option--is-focused {
+			background-color: ${({ theme: { colors } }) => colors.white};
+			color: black;
+
+			:hover {
+				background-color: ${({ theme: { colors } }) => colors.lightBlue};
+				color: ${({ theme: { colors } }) => colors.white};
+			}
+		}
+
+		.pacchetto__option--is-selected {
+			background-color: ${({ theme: { colors } }) => colors.lightBlue};
+			color: ${({ theme: { colors } }) => colors.white};
+		}
 	}
 `
 export const StyledField = styled(Field)`
+	padding: 8px 16px;
+
 	${inputStyles}
 `
 export const StyledAnimalsContainer = styled.div`
 	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: 2fr 5fr;
+	grid-gap: 20px;
+	grid-template-columns: repeat(2, 1fr);
 	width: 100%;
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		> div {
+			align-items: center;
+			display: inline-flex;
+			justify-content: space-between;
+			padding: 4px 0;
+			width: 100%;
+
+			label {
+				align-items: center;
+				display: flex;
+				${({ isSubmitting }) => isSubmitting && disabledStyles};
+
+				input[type='checkbox'] {
+					align-self: center;
+					appearance: none;
+					background-color: ${({ theme: { colors } }) => colors.white};
+					border-radius: 4px;
+					height: 15px;
+					margin-right: 12px;
+					width: 15px;
+
+					:checked {
+						background-color: ${({ theme: { colors } }) => colors.pink};
+					}
+
+					:disabled {
+						cursor: not-allowed;
+					}
+				}
+			}
+		}
+	}
 `
 export const StyledSubmitButton = styled.button`
-	background: ${({ theme: { colors } }) => colors.orange};
-	border: 2px solid ${({ theme: { colors } }) => colors.orange};
-	border-radius: 5px;
-	color: ${({ theme: { colors } }) => colors.yellow};
-	font-weight: 700;
-	padding: 5px 10px;
-	text-transform: uppercase;
+	background-color: ${({ theme: { colors } }) => colors.darkGreen};
+	border-radius: 32px;
+	color: ${({ theme: { colors } }) => colors.white};
+	cursor: pointer;
+	font-size: 1.2rem;
+	padding: 8px 32px;
 	width: fit-content;
 
 	:hover {
-		background: transparent;
-		color: ${({ theme: { colors } }) => colors.orange};
+		background-color: ${({ theme: { colors } }) => colors.pink};
 	}
 
 	:active {
-		background: ${({ theme: { colors } }) => colors.pink};
-		border: 2px solid ${({ theme: { colors } }) => colors.pink};
-		color: ${({ theme: { colors } }) => colors.yellow};
+		background-color: ${({ theme: { colors } }) => colors.lightGreen};
 	}
 
 	:disabled {
-		background: ${({ theme: { colors } }) => colors.orange};
-		border: 2px solid ${({ theme: { colors } }) => colors.orange};
-		color: ${({ theme: { colors } }) => colors.yellow};
-		cursor: not-allowed;
-		opacity: 0.7;
+		${disabledStyles}
 	}
 `
 export const StyledError = styled.p`
@@ -91,11 +148,25 @@ export const StyledError = styled.p`
 	display: ${({ showError }) => showError || 'none'};
 	grid-column: 1/3;
 `
-export const StyledThankYouMessage = styled.p`
-	border: 2px solid ${({ theme: { colors } }) => colors.orange};
-	border-radius: 5px;
-	color: ${({ theme: { colors } }) => colors.orange};
-	font-weight: 600;
-	margin-top: 15px;
-	padding: 15px;
+export const StyledThankYouMessage = styled.h2`
+	font-style: italic;
+	font-weight: 400;
+	margin-top: 24px;
+`
+const spin = keyframes`
+	from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`
+export const StyledLoader = styled.div`
+	border: 0.35rem solid #ffffff66;
+	border-top: 0.35rem solid #ffffffcc;
+	border-radius: 50%;
+	width: 2rem;
+	height: 2rem;
+	animation: ${spin} 2s linear infinite;
 `

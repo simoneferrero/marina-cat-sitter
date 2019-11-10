@@ -1,43 +1,45 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-import ContactForm from './ContactForm'
+import ContactForm from '../ContactForm'
 
 const StyledContacts = styled.section`
-	background-color: ${({ theme: { colors } }) => colors.yellow};
-	color: ${({ theme: { colors } }) => colors.darkBlue};
+	background-color: ${({ theme: { colors } }) => colors.lightBlue};
+	color: ${({ theme: { colors } }) => colors.white};
 	padding: 40px;
+	padding-top: ${({ theme: { headerHeight } }) => headerHeight + 40}px;
 	width: 100%;
 
 	> div {
 		margin: 0 auto;
 		max-width: ${({ theme: { maxWidth } }) => maxWidth}px;
 
+		> h1 {
+			font-style: italic;
+			font-weight: 400;
+		}
+
+		h1,
+		p {
+			margin-bottom: 16px;
+		}
+
 		form {
 			padding: 15px 0;
 		}
 	}
 `
-// TODO: import contact number/email from graphql
 // TODO: set url from constant or environment file
-// TODO: set loader when sending form
 const Contacts = () => (
 	<StyledContacts id="contacts">
 		<div>
-			<h2>Contattami</h2>
+			<h1>Contattami</h1>
 			<p>
 				Per maggiori informazioni, per conoscerci, o per prenotare una visita,
 				non esitare a contattarmi!
 				<br />
-				+38 348 8701690
-				<br />
-				<a
-					href="mailto:marinasilviadeambrosi@gmail.com"
-					rel="noopener noreferrer"
-					target="_blank"
-				>
-					marinasilviadeambrosi@gmail.com
-				</a>
+				Compila il form sottostante, mi assicurerò di risponderti in meno di 24
+				ore.
 			</p>
 			<ContactForm />
 		</div>
