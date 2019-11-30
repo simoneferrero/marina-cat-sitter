@@ -8,7 +8,7 @@ import { packages } from '../../constants/index'
 import { StyledImg, StyledPackage, StyledPackages } from './styled'
 
 const Packages = () => {
-	const favouritePackage = '1 ora'
+	const favouritePackage = '2 passaggi'
 	const [active, setActive] = useState(favouritePackage)
 	const {
 		allFile: { edges },
@@ -19,7 +19,7 @@ const Packages = () => {
 					node {
 						name
 						childImageSharp {
-							fixed(height: 100) {
+							fixed(height: 180) {
 								...GatsbyImageSharpFixed
 							}
 						}
@@ -44,7 +44,7 @@ const Packages = () => {
 				onMouseLeave={() => setActive(favouritePackage)}
 			>
 				<StyledImg fixed={fixed} />
-				<h3>{title}</h3>
+				<h2>{title}</h2>
 				<p>{text}</p>
 				<button onClick={() => handleClick(id)}>Seleziona</button>
 				{favourite && <div className="favourite">il più richiesto</div>}

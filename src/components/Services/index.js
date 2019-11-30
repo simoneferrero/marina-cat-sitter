@@ -43,7 +43,7 @@ const Services = () => {
 		},
 		{
 			key: 'keys',
-			text: 'Raccogliere e consegnare le chiavi',
+			text: 'Ritirare e consegnare le chiavi',
 		},
 		{
 			key: 'updates',

@@ -37,18 +37,20 @@ export const StyledPackage = styled.div`
 	color: ${({ theme: { colors } }) => colors.darkBlue};
 	cursor: default;
 	font-size: 0.75rem;
-	height: 380px;
-	margin: 0 16px;
+	height: 440px;
+	margin: 0 8px;
 	overflow: hidden;
-	padding: 24px;
+	padding: 32px;
+	padding-top: 8px;
 	position: relative;
 	transition: 0.3s;
-	width: 350px;
+	width: 360px;
 	z-index: 600;
 
 	${({ active }) => active && activePackageStyles}
 
-	h3 {
+	h2 {
+		margin-bottom: 8px;
 		text-align: center;
 		width: 100%;
 	}
@@ -83,10 +85,11 @@ export const StyledPackage = styled.div`
 		right: -47px;
 		top: 35px;
 		transform: rotate(45deg);
+		user-select: none;
 	}
 `
 export const StyledImg = styled(Img)`
 	left: 50%;
-	margin: 16px 0;
+	margin: 16px 0 8px 0;
 	transform: translateX(-50%);
 `

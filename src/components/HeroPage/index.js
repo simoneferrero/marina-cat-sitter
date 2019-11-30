@@ -31,7 +31,7 @@ const HeroPage = () => {
 				Pet sitter con anni di esperienza, pronta a prendersi cura dei tuoi cari
 				a quattro zampe.
 				<br />
-				Disponibile a Torino e provincia.
+				Disponibile a Torino e dintorni.
 			</p>
 		</StyledHeroPage>
 	)
