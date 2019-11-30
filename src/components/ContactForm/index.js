@@ -69,12 +69,14 @@ const ContactForm = () => {
 						<StyledLabel htmlFor="pacchetto">
 							<span>Tipo di pacchetto</span>
 							<Select
+								aria-label="pacchetto"
 								classNamePrefix="pacchetto"
-								isDisabled={isSubmitting}
 								id="pacchetto"
-								options={selectedPackageOptions}
-								onChange={value => setFieldValue('pacchetto', value)}
+								isDisabled={isSubmitting}
+								isSearchable={false}
 								onBlur={handleBlur}
+								onChange={value => setFieldValue('pacchetto', value)}
+								options={selectedPackageOptions}
 								value={values.pacchetto}
 							/>
 						</StyledLabel>

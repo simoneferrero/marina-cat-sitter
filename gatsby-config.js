@@ -2,7 +2,10 @@ module.exports = {
 	siteMetadata: {
 		title: `Marina Pet Sitter`,
 		description: `Pet sitter con anni di esperienza nel prendersi cura di gatti, cani e diversi tipi di animali. Disponibile a Torino e dintorni.`,
-		author: `simoneferrero`,
+		authors: [
+			{ name: 'Chiara', link: 'chiara-ferrero' },
+			{ name: 'Simone', link: 'simoneferrero' },
+		],
 		siteUrl: `https://marinapetsitter.it`,
 		image: `/images/icon.png`,
 	},

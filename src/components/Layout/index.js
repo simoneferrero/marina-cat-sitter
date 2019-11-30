@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components/macro'
 
 import Footer from '../Footer'
@@ -16,30 +15,18 @@ const StyledContentContainer = styled.div`
 	padding-top: 0;
 `
 
-const Layout = ({ children }) => {
-	const data = useStaticQuery(graphql`
-		query SiteTitleQuery {
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`)
-
-	return (
-		<ThemeProvider theme={theme}>
-			<FormContextProvider>
-				<GlobalStyles />
-				<Header siteTitle={data.site.siteMetadata.title} />
-				<StyledContentContainer>
-					<main>{children}</main>
-				</StyledContentContainer>
-				<Footer />
-			</FormContextProvider>
-		</ThemeProvider>
-	)
-}
+const Layout = ({ children }) => (
+	<ThemeProvider theme={theme}>
+		<FormContextProvider>
+			<GlobalStyles />
+			<Header />
+			<StyledContentContainer>
+				<main>{children}</main>
+			</StyledContentContainer>
+			<Footer />
+		</FormContextProvider>
+	</ThemeProvider>
+)
 
 Layout.propTypes = {
 	children: PropTypes.node.isRequired,
