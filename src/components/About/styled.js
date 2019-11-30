@@ -1,23 +1,34 @@
 import styled from 'styled-components/macro'
+import Img from 'gatsby-image'
 
 export const StyledAbout = styled.section`
 	background-color: ${({ theme: { colors } }) => colors.white};
 	color: ${({ theme: { colors } }) => colors.darkBlue};
-	width: 100%;
-	padding-top: ${({ theme: { headerHeight } }) => headerHeight + 40}px;
 	display: flex;
 	justify-content: center;
+	padding-top: ${({ theme: { headerHeight } }) => headerHeight + 40}px;
 	text-align: justify;
+	width: 100%;
 
 	> div {
 		align-items: end;
 		display: grid;
-		grid-template-columns: auto auto;
 		grid-gap: 2rem;
-		max-width: ${({ theme: { maxWidth } }) => maxWidth}px;
+		grid-template-areas: 'content' 'image';
+		grid-template-columns: auto;
+
+		@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+			grid-template-areas: 'image content';
+			grid-template-columns: repeat(2, auto);
+			max-width: ${({ theme: { maxWidth } }) => maxWidth}px;
+		}
 	}
 `
+export const StyledImg = styled(Img)`
+	grid-area: image;
+`
 export const StyledContent = styled.div`
+	grid-area: content;
 	padding: 0 2rem 3rem 2rem;
 
 	h1,

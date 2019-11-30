@@ -9,9 +9,15 @@ const activePackageStyles = css`
 export const StyledPackages = styled.section`
 	background-color: ${({ theme: { colors } }) => colors.white};
 	color: ${({ theme: { colors } }) => colors.darkBlue};
-	padding: 40px;
+	padding: 16px;
 	padding-top: ${({ theme: { headerHeight } }) => headerHeight + 40}px;
 	width: 100%;
+
+	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+		padding-bottom: 40px;
+		padding-left: 40px;
+		padding-right: 40px;
+	}
 
 	> div {
 		margin: 0 auto;
@@ -23,10 +29,16 @@ export const StyledPackages = styled.section`
 		}
 
 		> div {
-			display: flex;
-			justify-content: center;
-			padding: 80px 0;
+			display: grid;
+			grid-gap: 20px;
+			padding: 40px 0;
 			text-align: justify;
+			
+			@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+				display: flex;
+				justify-content: center;
+				padding: 80px 0;
+			}
 		}
 	}
 `
@@ -38,16 +50,20 @@ export const StyledPackage = styled.div`
 	cursor: default;
 	font-size: 0.75rem;
 	height: 440px;
-	margin: 0 8px;
 	overflow: hidden;
 	padding: 32px;
 	padding-top: 8px;
 	position: relative;
 	transition: 0.3s;
-	width: 360px;
+	width: 100%;
 	z-index: 600;
 
-	${({ active }) => active && activePackageStyles}
+	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+		${({ active }) => active && activePackageStyles}
+
+		margin: 0 8px;
+		width: 350px;
+	}
 
 	h2 {
 		margin-bottom: 8px;

@@ -13,6 +13,11 @@ const theme = {
 	headerHeight: 70,
 	headerHeightMax: 100,
 	maxWidth: 1200,
+	mediaQueries: {
+		phone: 'only screen and (max-width: 375px)',
+		tablet: 'only screen and (min-width: 376px) and (max-width: 1200px)',
+		desktop: 'only screen and (min-width: 1200px)',
+	},
 }
 
 export default theme

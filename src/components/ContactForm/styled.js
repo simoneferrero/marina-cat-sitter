@@ -5,8 +5,12 @@ export const StyledForm = styled.form`
 	display: grid;
 	grid-column-gap: 50px;
 	grid-row-gap: 32px;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: 1fr;
 	padding: 15px 0;
+
+	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+		grid-template-columns: repeat(2, 1fr);
+	}
 `
 const disabledStyles = css`
 	cursor: not-allowed;
@@ -26,10 +30,13 @@ const inputStyles = css`
 	}
 `
 export const StyledLabel = styled.label`
-	grid-column: ${({ fullWidth }) => fullWidth && '1/3'};
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+
+	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+		grid-column: ${({ fullWidth }) => fullWidth && '1/3'};
+	}
 
 	> * {
 		align-self: start;
@@ -81,8 +88,12 @@ export const StyledField = styled(Field)`
 export const StyledAnimalsContainer = styled.div`
 	display: grid;
 	grid-gap: 20px;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: 1fr;
 	width: 100%;
+
+	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+		grid-template-columns: repeat(2, 1fr);
+	}
 
 	> div {
 		display: flex;
@@ -146,7 +157,10 @@ export const StyledSubmitButton = styled.button`
 export const StyledError = styled.p`
 	color: ${({ theme: { colors } }) => colors.pink};
 	display: ${({ showError }) => showError || 'none'};
-	grid-column: 1/3;
+
+	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+		grid-column: '1/3';
+	}
 `
 export const StyledThankYouMessage = styled.h2`
 	font-style: italic;

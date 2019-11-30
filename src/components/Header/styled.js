@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro'
 
+const SMALL_ICON_MOBILE = 40
+const LARGE_ICON_MOBILE = 70
 const SMALL_ICON = 50
 const LARGE_ICON = 88
 
@@ -42,14 +44,25 @@ export const StyledHeader = styled.header`
 				align-items: center;
 				display: flex;
 				font-family: 'Montserrat', sans-serif;
-				font-weight: 900;
+				font-size: 0.7rem;
+				font-weight: 700;
 				justify-content: center;
 				margin: 0;
 				text-transform: lowercase;
 
+				@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+					font-size: 1.2rem;
+					font-weight: 900;
+				}
+
 				svg {
-					height: ${({ isSmall }) => (isSmall ? SMALL_ICON : LARGE_ICON)}px;
+					height: ${({ isSmall }) =>
+						isSmall ? SMALL_ICON_MOBILE : LARGE_ICON_MOBILE}px;
 					width: auto;
+
+					@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+						height: ${({ isSmall }) => (isSmall ? SMALL_ICON : LARGE_ICON)}px;
+					}
 				}
 			}
 		}

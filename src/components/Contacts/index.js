@@ -6,9 +6,15 @@ import ContactForm from '../ContactForm'
 const StyledContacts = styled.section`
 	background-color: ${({ theme: { colors } }) => colors.lightBlue};
 	color: ${({ theme: { colors } }) => colors.white};
-	padding: 40px;
+	padding: 16px;
 	padding-top: ${({ theme: { headerHeight } }) => headerHeight + 40}px;
 	width: 100%;
+
+	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+		padding-bottom: 40px;
+		padding-left: 40px;
+		padding-right: 40px;
+	}
 
 	> div {
 		margin: 0 auto;

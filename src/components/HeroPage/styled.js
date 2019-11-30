@@ -6,12 +6,14 @@ export const StyledHeroPage = styled.section`
 	background-image: url("${({ backgroundSrc }) => backgroundSrc}");
 	background-position: center bottom;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
 	color: ${({ theme: { colors } }) => colors.white};
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
 	justify-content: center;
+	padding-left: 24px;
+	padding-right: 24px;
 	padding-top: ${({ theme: { headerHeightMax } }) => headerHeightMax}px;
 	text-align: center;
 	width: 100%;
@@ -21,10 +23,10 @@ export const StyledHeroPage = styled.section`
 	}
 
 	h1 {
-		font-size: 4rem;
+		font-size: 3rem;
 		font-style: italic;
 		font-weight: normal;
-		line-height: 5rem;
+		line-height: 4rem;
 
 		span {
 			color: ${({ theme: { colors } }) => colors.yellow};
@@ -32,8 +34,25 @@ export const StyledHeroPage = styled.section`
 	}
 
 	p {
-		font-size: 1.3rem;
-		line-height: 4rem;
-		margin-top: 1rem;
+		font-size: 1rem;
+		line-height: 2rem;
+		margin-top: 2rem;
+	}
+
+	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
+		background-size: contain;
+		padding-left: 0;
+		padding-right: 0;
+
+		h1 {
+			font-size: 4rem;
+			font-size: 4rem;
+		}
+
+		p {
+			font-size: 1.3rem;
+			line-height: 4rem;
+			margin-top: 1rem;
+		}
 	}
 `

@@ -1,8 +1,7 @@
 import React from 'react'
-import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { StyledAbout, StyledContent } from './styled'
+import { StyledAbout, StyledContent, StyledImg } from './styled'
 
 const About = () => {
 	const {
@@ -24,10 +23,10 @@ const About = () => {
 	return (
 		<StyledAbout id="about">
 			<div>
-				<Img fixed={fixed} />
+				<StyledImg fixed={fixed} />
 				<StyledContent>
 					<h1>
-						Ciao, mi chiamo <span>Marina</span> e adoro gli animali.{' '}
+						Ciao, mi chiamo <span>Marina</span> e adoro gli animali.
 					</h1>
 					<p>
 						Ho 3 gatti meravigliosi a casa a farmi compagnia, e nella mia vita
