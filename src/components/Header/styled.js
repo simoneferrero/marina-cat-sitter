@@ -50,6 +50,11 @@ export const StyledHeader = styled.header`
 				margin: 0;
 				text-transform: lowercase;
 
+				@media ${({ theme: { mediaQueries } }) => mediaQueries.laptop} {
+					font-size: 1rem;
+					font-weight: 900;
+				}
+
 				@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
 					font-size: 1.2rem;
 					font-weight: 900;

@@ -3,13 +3,14 @@ import styled from 'styled-components/macro'
 export const StyledServices = styled.section`
 	background-color: ${({ theme: { colors } }) => colors.darkGreen};
 	color: ${({ theme: { colors } }) => colors.white};
-	width: 100%;
-	padding: 16px;
-	padding-bottom: 40px;
-	padding-top: ${({ theme: { headerHeight } }) => headerHeight + 40}px;
 	display: flex;
 	justify-content: center;
-	text-align: justify;
+	padding-bottom: 40px;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: ${({ theme: { headerHeight } }) => headerHeight + 40}px;
+	text-align: center;
+	width: 100%;
 
 	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
 		padding-left: 40px;
@@ -17,10 +18,14 @@ export const StyledServices = styled.section`
 	}
 
 	> div {
-		width: ${({ theme: { maxWidth } }) => maxWidth}px;
 		display: grid;
-		grid-template-columns: 1fr;
 		grid-gap: 3rem;
+		grid-template-columns: 1fr;
+		width: ${({ theme: { maxWidth } }) => maxWidth}px;
+
+		@media ${({ theme: { mediaQueries } }) => mediaQueries.laptop} {
+			grid-template-columns: repeat(2, 1fr);
+		}
 
 		@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
 			grid-template-columns: repeat(3, 1fr);
@@ -30,6 +35,11 @@ export const StyledServices = styled.section`
 			font-style: italic;
 			font-weight: 400;
 			grid-column: 1;
+			text-align: left;
+
+			@media ${({ theme: { mediaQueries } }) => mediaQueries.laptop} {
+				grid-column: 1/3;
+			}
 
 			@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
 				grid-column: 1/4;
@@ -37,10 +47,10 @@ export const StyledServices = styled.section`
 		}
 
 		> div {
-			display: flex;
 			align-items: center;
-			justify-content: center;
+			display: flex;
 			flex-direction: column;
+			justify-content: center;
 		}
 	}
 `

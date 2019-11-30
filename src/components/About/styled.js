@@ -26,6 +26,7 @@ export const StyledAbout = styled.section`
 `
 export const StyledImg = styled(Img)`
 	grid-area: image;
+	margin: 0 auto;
 `
 export const StyledContent = styled.div`
 	grid-area: content;

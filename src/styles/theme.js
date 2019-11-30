@@ -15,8 +15,9 @@ const theme = {
 	maxWidth: 1200,
 	mediaQueries: {
 		phone: 'only screen and (max-width: 375px)',
-		tablet: 'only screen and (min-width: 376px) and (max-width: 1200px)',
-		desktop: 'only screen and (min-width: 1200px)',
+		tablet: 'only screen and (min-width: 376px) and (max-width: 550px)',
+		laptop: 'only screen and (min-width: 551px) and (max-width: 1200px)',
+		desktop: 'only screen and (min-width: 1201px)',
 	},
 }
 

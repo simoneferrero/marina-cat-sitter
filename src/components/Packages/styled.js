@@ -50,6 +50,8 @@ export const StyledPackage = styled.div`
 	cursor: default;
 	font-size: 0.75rem;
 	height: 440px;
+	margin: 0 auto;
+	max-width: 500px;
 	overflow: hidden;
 	padding: 32px;
 	padding-top: 8px;

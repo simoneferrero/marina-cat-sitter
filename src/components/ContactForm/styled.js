@@ -91,6 +91,10 @@ export const StyledAnimalsContainer = styled.div`
 	grid-template-columns: 1fr;
 	width: 100%;
 
+	@media ${({ theme: { mediaQueries } }) => mediaQueries.laptop} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
 	@media ${({ theme: { mediaQueries } }) => mediaQueries.desktop} {
 		grid-template-columns: repeat(2, 1fr);
 	}
