@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "marina-pet-sitter",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Pet sitter with years of experience",
+  "version": "1.0.0",
+  "author": "Simone Ferrero <simone.ferrero@outlook.com>",
   "dependencies": {
     "axios": "^0.19.0",
     "formik": "^1.5.8",
@@ -13,7 +13,9 @@
     "gatsby-plugin-offline": "^3.0.16",
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-react-svg": "^2.1.2",
+    "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sharp": "^2.2.31",
+    "gatsby-plugin-sitemap": "^2.2.22",
     "gatsby-plugin-styled-components": "^3.1.11",
     "gatsby-plugin-typography": "^2.3.14",
     "gatsby-source-filesystem": "^2.1.33",
@@ -36,26 +38,27 @@
     "eslint-plugin-jest": "^22.19.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
+    "now": "^16.6.0",
     "prettier": "^1.18.2"
   },
   "keywords": [
-    "gatsby"
+    "marina",
+    "pet-sitter"
   ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "deploy:prod": "npm run build && now --prod",
+    "deploy:staging": "npm run build && now --target staging",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "echo \"Write tests!\""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/marina-pet-sitter"
   },
   "babelMacros": {
     "styledComponents": {}

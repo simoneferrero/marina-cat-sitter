@@ -1,8 +1,10 @@
 module.exports = {
 	siteMetadata: {
-		title: `Marina Cat Sitter`,
-		description: `Cat sitter con anni di esperienza nel prendersi cura di gatti, cani e diversi tipi di animali. Disponibile a Torino e provincia.`,
+		title: `Marina Pet Sitter`,
+		description: `Pet sitter con anni di esperienza nel prendersi cura di gatti, cani e diversi tipi di animali. Disponibile a Torino e dintorni.`,
 		author: `simoneferrero`,
+		siteUrl: `https://marinapetsitter.it`,
+		image: `/images/icon.png`,
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
@@ -18,7 +20,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `marina-cat-sitter`,
+				name: `marina-pet-sitter`,
 				short_name: `marina`,
 				start_url: `/`,
 				background_color: `#005560`,
@@ -43,8 +45,15 @@ module.exports = {
 				},
 			},
 		},
-		// this (optional) plugin enables Progressive Web App + Offline functionality
-		// To learn more, visit: https://gatsby.dev/offline
-		// `gatsby-plugin-offline`,
+		`gatsby-plugin-offline`,
+		`gatsby-plugin-sitemap`,
+		{
+			resolve: 'gatsby-plugin-robots-txt',
+			options: {
+				host: 'https://marinapetsitter.it',
+				sitemap: 'https://marinapetsitter.it/sitemap.xml',
+				policy: [{ userAgent: '*', allow: '/' }],
+			},
+		},
 	],
 }

@@ -4,7 +4,7 @@ const smoothScroll = (id, options = {}) => {
 	if (anchor) {
 		const offsetTop = anchor.getBoundingClientRect().top + window.pageYOffset
 
-		window.scroll({
+		window.scrollTo({
 			top: offsetTop - (options.offset || 0),
 			behavior: options.behavior || 'smooth',
 		})
