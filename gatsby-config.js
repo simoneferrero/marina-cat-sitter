@@ -8,6 +8,7 @@ module.exports = {
 		],
 		siteUrl: `https://marinapetsitter.it`,
 		image: `/images/icon.png`,
+		submitUrl: 'https://submit-form.com/_O3HAwSR5ATBuTeGhfyGa',
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,

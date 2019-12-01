@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 import * as Yup from 'yup'
 import { graphql, useStaticQuery } from 'gatsby'
 import { packages } from '../../constants/index'
-import { post } from 'axios'
+import axios from 'axios'
 
 export const getSelectedPackageOptions = () =>
 	packages.map(({ id, title }) => ({
@@ -118,8 +118,12 @@ export const getAnimalOptions = () => {
 	]
 }
 
-export const getHandleSubmit = (setShowForm, setShowGenericError) => async (
-	values,
+export const getHandleSubmit = (
+	setShowForm,
+	setShowGenericError,
+	submitUrl
+) => async (
+	{ animali: { quantità, tipi }, pacchetto, ...values },
 	{ resetForm, setSubmitting }
 ) => {
 	if (values._gotcha) {
@@ -128,16 +132,22 @@ export const getHandleSubmit = (setShowForm, setShowGenericError) => async (
 
 	try {
 		setShowGenericError(false)
-		const url = 'https://getform.io/f/910fb476-8f02-4db2-9f65-c8e0e00f429f'
 
 		const headers = new Headers({
+			Accept: 'application/json',
 			'Content-Type': 'application/json',
 		})
 
-		await post(url, {
+		await axios(submitUrl, {
 			method: 'POST',
 			headers,
-			data: values,
+			data: {
+				...values,
+				animali: `${quantità} ${
+					tipi.length ? ' - ' + tipi.join(', ') : 'animali'
+				}`,
+				...(pacchetto && { pacchetto: pacchetto.label }),
+			},
 		})
 
 		resetForm()

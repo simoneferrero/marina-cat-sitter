@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
-import { Field, FieldArray, Formik } from 'formik'
 import Select from 'react-select'
+import { Field, FieldArray, Formik } from 'formik'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import {
 	StyledAnimalsContainer,
@@ -24,6 +25,21 @@ import {
 
 const ContactForm = () => {
 	const {
+		site: {
+			siteMetadata: { submitUrl },
+		},
+	} = useStaticQuery(
+		graphql`
+			query {
+				site {
+					siteMetadata {
+						submitUrl
+					}
+				}
+			}
+		`
+	)
+	const {
 		state: { selectedPackage },
 	} = useContext(FormContext)
 	const [showGenericError, setShowGenericError] = useState(false)
@@ -38,7 +54,7 @@ const ContactForm = () => {
 		<Formik
 			enableReinitialize
 			initialValues={initialValues}
-			onSubmit={getHandleSubmit(setShowForm, setShowGenericError)}
+			onSubmit={getHandleSubmit(setShowForm, setShowGenericError, submitUrl)}
 			validationSchema={validationSchema}
 		>
 			{({
