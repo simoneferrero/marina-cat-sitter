@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "Simone Ferrero <simone.ferrero@outlook.com>",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "formik": "^1.5.8",
     "gatsby": "^2.16.1",
     "gatsby-image": "^2.2.29",
